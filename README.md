@@ -109,4 +109,4 @@ Sinta-se à vontade para contribuir com melhorias de código, design ou document
 
 **Whatsapp:** (63) 9237-5491
 
-**[INSERIR INFORMAÇÕES DE CONTATO OU REPOSITÓRIO AQUI]**
+**VICENTE FILHO GOMES DE ANDRADE**
