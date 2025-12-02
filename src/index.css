@@ -1,0 +1,285 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system - Dark Terminal Premium
+   Inspired by Datadog, Vercel, Grafana
+   All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Background - Deep dark #0D0D0D */
+    --background: 0 0% 5%;
+    --foreground: 220 13% 91%;
+
+    /* Cards/Panels - #111418, #151A20 */
+    --card: 216 14% 9%;
+    --card-foreground: 220 13% 91%;
+
+    --popover: 216 14% 8%;
+    --popover-foreground: 220 13% 91%;
+
+    /* Primary Accent - Soft Hacker Green #0FE38C */
+    --primary: 157 89% 47%;
+    --primary-foreground: 0 0% 0%;
+
+    /* Secondary - Dark panels */
+    --secondary: 216 14% 11%;
+    --secondary-foreground: 220 13% 91%;
+
+    /* Muted - For subtle text and backgrounds */
+    --muted: 216 14% 13%;
+    --muted-foreground: 220 9% 60%;
+
+    /* Accent - Subtle highlight */
+    --accent: 216 14% 16%;
+    --accent-foreground: 220 13% 91%;
+
+    /* Destructive - Soft Red (not neon) */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders - #1F242C */
+    --border: 216 14% 16%;
+    --input: 216 14% 13%;
+    --ring: 157 89% 47%;
+
+    --radius: 0.25rem;
+
+    /* Status Colors (subtle, translucent) */
+    --status-success: 157 89% 47%;
+    --status-error: 0 72% 51%;
+    --status-warning: 45 93% 47%;
+    --status-info: 200 80% 50%;
+
+    /* Sidebar */
+    --sidebar-background: 216 14% 7%;
+    --sidebar-foreground: 220 13% 91%;
+    --sidebar-primary: 157 89% 47%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 216 14% 13%;
+    --sidebar-accent-foreground: 220 13% 91%;
+    --sidebar-border: 216 14% 16%;
+    --sidebar-ring: 157 89% 47%;
+
+    /* Chart colors */
+    --chart-1: 157 89% 47%;
+    --chart-2: 200 80% 50%;
+    --chart-3: 45 93% 47%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 0 72% 51%;
+  }
+
+  /* Light Theme */
+  .light {
+    /* Background - Clean white */
+    --background: 0 0% 98%;
+    --foreground: 220 13% 15%;
+
+    /* Cards/Panels */
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 15%;
+
+    /* Primary Accent - Keep the green */
+    --primary: 157 89% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary */
+    --secondary: 220 13% 95%;
+    --secondary-foreground: 220 13% 15%;
+
+    /* Muted */
+    --muted: 220 13% 92%;
+    --muted-foreground: 220 9% 46%;
+
+    /* Accent */
+    --accent: 220 13% 90%;
+    --accent-foreground: 220 13% 15%;
+
+    /* Destructive */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders */
+    --border: 220 13% 87%;
+    --input: 220 13% 90%;
+    --ring: 157 89% 40%;
+
+    /* Status Colors */
+    --status-success: 157 89% 40%;
+    --status-error: 0 72% 51%;
+    --status-warning: 45 93% 47%;
+    --status-info: 200 80% 50%;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 220 13% 15%;
+    --sidebar-primary: 157 89% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 13% 92%;
+    --sidebar-accent-foreground: 220 13% 15%;
+    --sidebar-border: 220 13% 87%;
+    --sidebar-ring: 157 89% 40%;
+
+    /* Chart colors */
+    --chart-1: 157 89% 40%;
+    --chart-2: 200 80% 45%;
+    --chart-3: 45 93% 42%;
+    --chart-4: 280 65% 55%;
+    --chart-5: 0 72% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    /* Prevent iOS text size adjustment */
+    -webkit-text-size-adjust: 100%;
+    /* Smooth scrolling */
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', monospace;
+    /* Prevent pull-to-refresh on PWA */
+    overscroll-behavior-y: contain;
+    /* Safe area for notched devices */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    /* Prevent horizontal scroll */
+    overflow-x: hidden;
+    /* Touch optimization */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Custom Scrollbars - Minimal */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: hsl(var(--background));
+  }
+
+  /* Firefox Scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) hsl(var(--background));
+  }
+
+  /* Mobile tap targets */
+  @media (max-width: 640px) {
+    button, a, [role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+}
+
+@layer utilities {
+  /* Subtle glow for special elements only */
+  .glow-primary {
+    box-shadow: 0 0 20px hsla(157, 89%, 47%, 0.15);
+  }
+
+  .terminal-text {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', monospace;
+    letter-spacing: -0.01em;
+  }
+
+  /* Section title style */
+  .section-title {
+    @apply text-sm font-medium tracking-wide text-muted-foreground uppercase;
+  }
+
+  /* Status indicator dot */
+  .status-dot {
+    @apply w-2 h-2 rounded-full flex-shrink-0;
+  }
+
+  .status-dot-success {
+    @apply status-dot bg-primary;
+  }
+
+  .status-dot-error {
+    @apply status-dot bg-destructive;
+  }
+
+  /* Accent top border for sections */
+  .section-accent {
+    @apply border-t-2 border-t-primary/30;
+  }
+
+  /* Subtle card hover */
+  .card-hover {
+    @apply transition-colors hover:bg-secondary/80;
+  }
+
+  /* KPI value style - Responsive */
+  .kpi-value {
+    @apply text-xl sm:text-2xl md:text-3xl font-bold tracking-tight;
+  }
+
+  .kpi-label {
+    @apply text-[10px] sm:text-xs font-medium text-muted-foreground uppercase tracking-wide;
+  }
+
+  /* Mobile card view for tables */
+  .mobile-log-card {
+    @apply p-3 bg-card border border-border rounded transition-colors;
+  }
+
+  .mobile-log-card:active {
+    @apply bg-secondary;
+  }
+
+  /* Hide on mobile, show on desktop */
+  .desktop-only {
+    @apply hidden md:block;
+  }
+
+  /* Show on mobile, hide on desktop */
+  .mobile-only {
+    @apply block md:hidden;
+  }
+
+  /* Responsive text */
+  .text-responsive-xs {
+    @apply text-[10px] sm:text-xs;
+  }
+
+  .text-responsive-sm {
+    @apply text-xs sm:text-sm;
+  }
+
+  /* Touch-friendly spacing */
+  .touch-spacing {
+    @apply py-3 px-4;
+  }
+
+  /* Fast animations for performance */
+  .fast-transition {
+    @apply transition-colors duration-150;
+  }
+}
