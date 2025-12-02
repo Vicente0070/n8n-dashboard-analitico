@@ -5,6 +5,14 @@
 Este projeto é um dashboard de analytics de código aberto, projetado para monitorar a saúde e o desempenho de fluxos de trabalho (workflows) em plataformas como o **n8n** e a **Evolution**, além de rastrear o consumo de tokens e custos da API da **OpenAI** por projeto.
 
 O dashboard é um frontend que se comunica com webhooks do n8n, garantindo que a lógica de backend e as chaves de API sensíveis permaneçam seguras.
+Tema Escuro:
+<img width="1920" height="2368" alt="n8n Analytics Dashboard - DEVicente Black" src="https://github.com/user-attachments/assets/9036c353-b0a9-4402-baac-099e3135b1c0" />
+
+Tema Claro:
+<img width="1920" height="2368" alt="n8n Analytics Dashboard - DEVicente White" src="https://github.com/user-attachments/assets/b030b701-674a-430b-ac92-859b549cfbe3" />
+
+Instâncias:
+<img width="762" height="852" alt="Instancia" src="https://github.com/user-attachments/assets/8eb0c06d-81e8-4979-8c7a-461a7ba617e3" />
 
 ## ⚙️ Configuração de Ambiente (Variáveis de Ambiente)
 
@@ -79,6 +87,9 @@ A API da OpenAI retorna os dados de consumo e custo usando os IDs internos dos p
 **Conclusão do Fluxo:**
 
 Após a conclusão e ativação do fluxo, copie a **URL do Webhook** gerada e cole-a na variável `VITE_PUBLIC_TOKEN_USAGE_WEBHOOK_URL`.
+
+Captura de tela do fluxo:
+<img width="692" height="596" alt="image" src="https://github.com/user-attachments/assets/de4b55e5-020a-4f08-9533-f77674590de9" />
 
 ---
 ## 🚀 Implantação do Frontend
